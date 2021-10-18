@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  endpoint: 'https://425plci4yi.execute-api.us-east-1.amazonaws.com/dev'
 };
