@@ -8,6 +8,10 @@ import { BannerComponent } from './shared/banner/banner.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { QuestionCardComponent } from './shared/question-card/question-card.component';
+import { MakeQuizComponent } from './pages/make-quiz/make-quiz.component';
+import { FormsModule } from '@angular/forms';
+import { ResumeComponent } from './pages/resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import { HttpClientModule } from '@angular/common/http';
     QuizComponent,
     BannerComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    QuestionCardComponent,
+    MakeQuizComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Contenedor del Tooltip */
+
+.tooltip-container {
+    cursor: pointer;
+    position: relative;
+}
+
+
+/* Mostrando los tooltips*/
+
+.tooltip-container:hover .c-tooltip,
+.tooltip-container:hover {
+    display: block !important;
+}
+
+
+/* Tooltip CSS 2.1 */
+
+.c-tooltip:before {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #000;
+    bottom: -6px;
+    content: "";
+    height: 0;
+    margin-left: -6px;
+    position: absolute;
+    width: 0;
+}
+
+.c-tooltip {
+    background-color: #222;
+    color: #FFFFFF;
+    display: none;
+    padding: 10px 20px;
+    position: absolute;
+    top: -50px;
+}
