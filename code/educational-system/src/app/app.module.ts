@@ -12,6 +12,8 @@ import { QuestionCardComponent } from './shared/question-card/question-card.comp
 import { MakeQuizComponent } from './pages/make-quiz/make-quiz.component';
 import { FormsModule } from '@angular/forms';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { QuizCreateComponent } from './pages/quiz/quiz-create/quiz-create.component';
+import { QuestionCreateComponent } from './pages/question-create/question-create.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ResumeComponent } from './pages/resume/resume.component';
     NotFoundComponent,
     QuestionCardComponent,
     MakeQuizComponent,
-    ResumeComponent
+    ResumeComponent,
+    QuizCreateComponent,
+    QuestionCreateComponent
   ],
   imports: [
     BrowserModule,
