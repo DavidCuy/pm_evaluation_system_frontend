@@ -9,6 +9,7 @@ export class QuestionCardComponent implements OnInit {
   @Input() IdQuestion = -1;
   @Input() Description = '';
   @Input() answers = [];
+  @Input() isResume = false;
 
   @Output() answerEmitter = new EventEmitter<any>();
 

@@ -11,6 +11,7 @@ export class ResumeComponent implements OnInit {
 
   IdQuiz = '';
   IdPerson = '';
+  responses = [];
 
   constructor(public resumeService: ResumeService, private route: ActivatedRoute, private router: Router) { }
 
@@ -18,7 +19,25 @@ export class ResumeComponent implements OnInit {
     this.IdQuiz = this.route.snapshot.params?.IdQuizz;
     this.IdPerson = this.route.snapshot.params?.idPerson;
     this.resumeService.getResume(parseInt(this.IdPerson, 10), parseInt(this.IdQuiz, 10)).subscribe(resp => {
-      console.log(resp);
+      this.responses = resp;
+
+      this.responses.forEach(r => {
+        const correctIndex = r.answers.findIndex(ans => ans.Correct === true);
+
+        if (correctIndex >= 0) {
+          r.answers[correctIndex].personCorrect = true;
+        }
+
+        const pCorrectAnswerIndex = r.answers.findIndex(ans => (ans.IdAnswer === r.person_answer.IdAnswer) && (ans.Correct === true));
+
+        if (pCorrectAnswerIndex < 0) {
+          const pAnswerIndex = r.answers.findIndex(ans => ans.IdAnswer === r.person_answer.IdAnswer);
+
+          if (pAnswerIndex >= 0) {
+            r.answers[pAnswerIndex].personCorrect = false;
+          }
+        }
+      });
     });
   }
 
