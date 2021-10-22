@@ -1,0 +1,10 @@
+<div class="row" *ngFor="let question of this.responses">
+    <div class="col-12">
+        <app-question-card (answerEmitter)="getAnswer($event)" [isResume]="true" [IdQuestion]="question?.IdQuestion" [Description]="question?.Description" [answers]="question?.answers"></app-question-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-success" routerLink="/">Ir a inicio</button>
+    </div>
+</div>
