@@ -19,6 +19,10 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
+      
+      - name: change project path
+      - run: cd code/educational-system
+
       - name: Install
         run: npm install
 
