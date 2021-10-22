@@ -22,6 +22,9 @@ export class ResumeComponent implements OnInit {
       this.responses = resp;
 
       this.responses.forEach(r => {
+        if (!r.answers) {
+          return;
+        }
         const correctIndex = r.answers.findIndex(ans => ans.Correct === true);
 
         if (correctIndex >= 0) {
