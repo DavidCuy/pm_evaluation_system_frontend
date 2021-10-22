@@ -7,6 +7,15 @@
             <div class="card-body">
                 <h5 class="border-bottom border-gray pb-2 mb-0">Cuestionarios</h5>
                 <div class="media text-muted pt-3" *ngFor="let quiz of quizzes">
+                    <div class="tooltip-container" style="float: right;">
+                        <span class="c-tooltip">Responder</span>
+                        <button class="btn btn-primary" (click)="showModal(quiz)">
+                            <i class="far fa-edit"></i>
+                        </button>
+                    </div>
+                    <div class="tooltip">Hover over me
+                        <span class="tooltiptext">Tooltip text</span>
+                    </div>
                     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                         <strong class="d-block text-gray-dark">{{ quiz?.Name }}</strong> {{ quiz?.Description }}
                     </p>
@@ -14,7 +23,27 @@
                 <small class="d-block text-right mt-3" style="float: right;">
                   <a href="javascript:void(0)" style="margin-right: 20px;" *ngIf="prevPage" (click)="change_page(-1)">Anterior</a>
                   <a href="javascript:void(0)" *ngIf="nextPage" (click)="change_page(1)">Siguiente</a>
-                </small>
+              </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="personModal" tabindex="-1" role="dialog" aria-hidden="false" style="display: block; opacity: 100;" *ngIf="modalShow">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="personModalLabel">Escriba su nombre:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="Juanaito..." [(ngModel)]="personName">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalShow=false">Cancelar</button>
+                <button type="button" class="btn btn-primary" (click)="responseQuiz()">Responder encuesta</button>
             </div>
         </div>
     </div>

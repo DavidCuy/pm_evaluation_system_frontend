@@ -1,0 +1,10 @@
+<div class="row" *ngFor="let question of questions">
+    <div class="col-12">
+        <app-question-card (answerEmitter)="getAnswer($event)" [IdQuestion]="question?.IdQuestion" [Description]="question?.Description" [answers]="question?.answers"></app-question-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-success" (click)="saveQuiz()">Ver respuestas</button>
+    </div>
+</div>

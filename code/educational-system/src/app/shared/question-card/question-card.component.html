@@ -1,0 +1,14 @@
+<div class="card-body">
+    <div class="media text-muted pt-3">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">{{ Description }}</strong>
+        </p>
+    </div>
+    <div class="form-check" *ngFor="let answer of answers">
+        <input [value]="answer?.IdAnswer" (click)="changeAnswer(answer?.IdAnswer)" class="form-check-input" type="radio" name="answers-question-{{ IdQuestion }}" id="answer-{{ answer?.IdAnswer }}" [(ngModel)]="selectedAnswer">
+        <label class="form-check-label" for="answer-{{ answer?.IdAnswer }}">
+        {{ answer?.Description }}
+      </label>
+    </div>
+
+</div>
