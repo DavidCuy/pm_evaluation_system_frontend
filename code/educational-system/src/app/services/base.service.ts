@@ -68,6 +68,23 @@ export abstract class BaseService {
       }));
   }
 
+  public filterByParam(paramName: string, value: any, page: number = 1, perPage: number = 5): Observable<any> {
+    const url = `${this.URL_API}/${this.endpointPrefix}/${paramName}/${value}`;
+
+    const requestData = new Map<string, any>();
+    requestData.set('page', page);
+    requestData.set('per_page', perPage);
+
+    return this.httpClient.get(url, { headers: this.common_headers(), params: this.parse_query_params(requestData) })
+      .pipe(map((resolve: any) => {
+        if (!environment.production) {
+          console.log(resolve);
+        }
+        return resolve;
+      }), map((resolve: any) => resolve
+    ));
+  }
+
   protected paginable_params(page: number = 1, perPage: number = 50): Map<string, any> {
     const requestData = new Map<string, any>();
     requestData.set('page', page);
