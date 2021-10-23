@@ -36,6 +36,7 @@ jobs:
 
           echo "Building solution"
           npm run build-prod
+          cd dist/dashboard
           ls -ltr
 
       - name: Deploy
